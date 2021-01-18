@@ -3,8 +3,8 @@ layout: post
 title: How To Create A FHIR Resource
 subtitle: A simple first step
 # cover-img: /assets/img/path.jpg
-thumbnail-img: /assets/blog/create_fhir2.webp
-share-img: /assets/blog/create_fhir2.webp
+thumbnail-img: /assets/blog/thumbnail.webp
+share-img: /assets/blog/thumbnail.webp
 tags: [books, test]
 ---
 
