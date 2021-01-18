@@ -13,8 +13,7 @@ We [will not talk](https://www.archetextur.es/why-did-hl7-version-3-fail/) about
 
 FHIR on the other hand, is a solution designed from scratch keeping modern web development practices in mind. Health data is represented as resources and exchanged through multiple paradigms, one of which is a RESTful server.
 
-Take the following clinical content for example:
-
+**Take the following clinical content for example:**
 A 23 year old patient from New York, came with complaints of cough and fever. The blood pressure was 120/80 and the Pulse was 98 per/min. The patient has been reassured that it is the common cold. Paracetamol 500mg SOS has been prescribed. 
 
 Although, it seems like a simple scenario, from the viewpoint of FHIR, this needs to be broken down into resources. In just this scenario, there are at least 6 resources.
