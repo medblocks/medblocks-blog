@@ -2,8 +2,6 @@
 layout: post
 title: Sample blog post
 subtitle: Each post also has a subtitle
-gh-repo: daattali/beautiful-jekyll
-gh-badge: [star, fork, follow]
 tags: [test]
 comments: true
 ---
@@ -50,6 +48,15 @@ var foo = function(x) {
 foo(3)
 ```
 
+```json
+{
+  "hello": "world",
+  "this" : "is pretty cool"
+}
+```
+
+Here is my youtube video on the same:
+<iframe width="560" height="315" src="https://www.youtube.com/embed/HdPyV6ggGA4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 And here is the same code yet again but with line numbers:
 
 {% highlight javascript linenos %}
