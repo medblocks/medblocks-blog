@@ -15,10 +15,7 @@ author: Sidharth Ramesh
 
 navbar-links:
   About Me: "aboutme"
-  Resources:
-    - Beautiful Jekyll: "https://beautifuljekyll.com"
-    - Learn markdown: "https://www.markdowntutorial.com/"
-  Author's home: "https://deanattali.com"
+  Medblocks.org: "https://medblocks.org"
 
 # --- Logo --- #
 

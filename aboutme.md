@@ -1,16 +1,23 @@
 ---
 layout: page
-title: About me
-subtitle: Why you'd want to go on a date with me
+title: Sidharth Ramesh
+subtitle: Physician by training, Hacker by passion.
 ---
 
-My name is Inigo Montoya. I have the following qualities:
+Welcome to my blog. My name is Dr. Sidharth Ramesh.
 
-- I rock a great mustache
-- I'm extremely loyal to my family
+# My story
+I've always been interested in computers ever since I was a kid. I learned how to code online when I was 16 and have not stopped coding ever since. 
 
-What else do you need?
+I joined medical college, because that's something you should do when you're in India and both your parents are doctors.
 
-### My story
+This is me with all the books I read, right after I finished medical college:
+![me with a lot of books](/assets/blog/aboutme.png) {: .mx-auto.d-block :}
 
-To be honest, I'm having some trouble remembering right now, so why don't you just watch [my movie](https://en.wikipedia.org/wiki/The_Princess_Bride_%28film%29) and it will answer **all** your questions.
+This graph was what made me realize that my skills with computers will be of more help to doctors and patients, than me pursuing my medical career further:
+![exponentially increasing medical research](/assets/blog/increasing_research.png) {: .mx-auto.d-block :}
+
+I believe, to provide data-driven decisions when and where it is needed most, can help save lives. The sheer amount of time a doctor wastes doing paperwork today is unacceptable.
+Ever since, I've been learning about health informatics technology, teaching what I've learnt, and contributing to open-source tools to build better health informatics systems.
+
+I hope you find my work useful. If you want to reach out to me, you can find my email address below.
