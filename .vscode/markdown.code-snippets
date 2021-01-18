@@ -29,5 +29,10 @@
 		"scope": "markdown",
 		"prefix": "image",
 		"body": "![$1]($2){: .mx-auto.d-block :}"
+	},
+	"Page layout": {
+		"scope": "markdown",
+		"prefix": "---",
+		"body": "---\nlayout: post\ntitle: $1\nsubtitle: $2\nthumbnail-img: /assets/blog/$3.png\ntags: [$4]\n---"
 	}
 }
