@@ -24,5 +24,10 @@
 		"scope": "markdown",
 		"prefix": "center",
 		"body": "{: .mx-auto.d-block :}"
+	},
+	"Image center": {
+		"scope": "markdown",
+		"prefix": "image",
+		"body": "![$1]($2) {: .mx-auto.d-block :}"
 	}
 }
