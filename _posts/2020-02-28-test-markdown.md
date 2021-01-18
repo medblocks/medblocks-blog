@@ -48,6 +48,7 @@ var foo = function(x) {
 foo(3)
 ```
 
+
 ```json
 {
   "hello": "world",
@@ -56,7 +57,8 @@ foo(3)
 ```
 
 Here is my youtube video on the same:
-<iframe width="560" height="315" src="https://www.youtube.com/embed/HdPyV6ggGA4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe src="https://www.youtube.com/embed/HdPyV6ggGA4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>{: .mx-auto.d-block :}
+
 And here is the same code yet again but with line numbers:
 
 {% highlight javascript linenos %}
@@ -83,3 +85,6 @@ You can add notification, warning and error boxes like this:
 
 {: .box-error}
 **Error:** This is an error box.
+
+{: .box-note}
+**Note:** The usage of FHIR resources are not the only way to do something in Health Informatics.
