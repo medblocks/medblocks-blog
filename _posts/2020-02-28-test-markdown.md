@@ -48,6 +48,8 @@ var foo = function(x) {
 foo(3)
 ```
 
+What the mind does not know the eyes don't see:
+
 ```json
 {
   "hello": "world",
