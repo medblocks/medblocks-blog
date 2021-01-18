@@ -48,7 +48,6 @@ var foo = function(x) {
 foo(3)
 ```
 
-
 ```json
 {
   "hello": "world",
@@ -57,7 +56,7 @@ foo(3)
 ```
 
 Here is my youtube video on the same:
-<iframe src="https://www.youtube.com/embed/HdPyV6ggGA4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>{: .mx-auto.d-block :}
+<iframe width="560" height="315" src="https://www.youtube.com/embed/HdPyV6ggGA4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> {: .mx-auto.d-block :}
 
 And here is the same code yet again but with line numbers:
 
