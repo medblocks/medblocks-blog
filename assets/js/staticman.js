@@ -14,10 +14,11 @@ layout: null
     var endpoint = '{{ sm.endpoint | default: "https://staticman3.herokuapp.com/v3/entry/github/" }}';
     var repository = '{{ sm.repository }}';
     var branch = '{{ sm.branch }}';
-
+    var url = endpoint + repository + '/' + branch + '/comments'
+    console.log(url)
     $.ajax({
       type: $(this).attr('method'),
-      url: endpoint + repository + '/' + branch + '/comments',
+      url: url,
       data: $(this).serialize(),
       contentType: 'application/x-www-form-urlencoded',
       success: function (data) {

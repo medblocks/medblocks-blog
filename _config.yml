@@ -165,7 +165,7 @@ site-css:
 staticman:
   repository : "sidharthramesh/medblocks-blog"
   branch     : master
-#  endpoint   : # (optional) URL of your own deployment, with a trailing slash eg. https://<your-api>/v3/entry/github/ (will fallback to a public GitLab instance)
+  # endpoint   : https://api.staticman.net/v2/entry/sidharthramesh/medblocks-blog/master
 #  reCaptcha:
 #    siteKey  : # Use your own site key, you need to apply for one on Google
 #    secret   : # ENCRYPT your password by going to https://staticman3.herokuapp.com/v3/encrypt/<your-site-secret>
