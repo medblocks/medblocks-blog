@@ -144,7 +144,7 @@ site-css:
 #disqus: ""
 
 # To use Facebook Comments, create a Facebook app and fill in the Facebook App ID
-#fb_comment_id: ""
+fb_comment_id: "1957165264554680"
 
 # To use Utterances comments: (0) uncomment the following section, (1) fill in
 # "repository" (make sure the repository is public), (2) Enable Issues in your repository,
@@ -176,7 +176,7 @@ site-css:
 date_format: "%B %-d, %Y"
 
 # Facebook App ID
-#fb_app_id: ""
+fb_app_id: "1957165264554680"
 
 # --- You don't need to touch anything below here (but you can if you want) --- #
 
