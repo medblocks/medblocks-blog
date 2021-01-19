@@ -162,9 +162,9 @@ site-css:
 # If you want to use reCaptcha for staticman (optional for spam protection), then fill
 # in the "siteKey" and "secret" parameters below and also in `staticman.yml`.
 # See more details at https://staticman.net/
-staticman:
-  repository : "sidharthramesh/medblocks-blog"
-  branch     : master
+# staticman:
+#   repository : "sidharthramesh/medblocks-blog"
+#   branch     : master
   # endpoint   : https://api.staticman.net/v2/entry/sidharthramesh/medblocks-blog/master
 #  reCaptcha:
 #    siteKey  : # Use your own site key, you need to apply for one on Google
