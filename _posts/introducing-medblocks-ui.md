@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing Medblocks UI
-subtitle: An open-source component library for openEHR based interfaces.
+subtitle: An open-source UI library for openEHR based interfaces.
 thumbnail-img: /assets/blog/.png
 tags: ["medblocks", "openEHR"]
 ---
