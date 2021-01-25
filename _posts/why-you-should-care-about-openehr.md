@@ -1,6 +1,6 @@
 ---
 layout: post
-title: What is openEHR and How Do I Use It?
+title: Why You Should Care About OpenEHR
 subtitle: A practical guide to Archetypes and Templates.
 thumbnail-img: /assets/blog/.png
 tags: ['openehr']
@@ -37,3 +37,16 @@ In the video below, I show a simple demo of how an EHR based complelete on templ
 <iframe src="https://www.youtube.com/embed/Zn4Muj2IOlM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
+# Querying Data
+The beauty of openEHR is that it does not just announce that you need to separate your content from the application and vanish. It provides a very practical approach to query this data using Archetype Query Language. This is like SQL, but on multi-layered models like the ones like a template.
+
+
+AQL differs from SQL and even querying using FHIR, in that it does not assume to know the structure of the underlying data at query time.
+For example, assume that in a General Physical Examination, you want to extract all the positions the Blood Pressure was recorded in. Using openEHR, a template for General Physical Examination can be created and the blood pressure, along with the position can be included.
+
+A query like the following can be composed to extract that information:
+
+~~~
+~~~
+
+Modelling the same information using FHIR is hard. You'll have to encode the "General Physical Examination" into the Encounter or under an extension under the Observation. The position of measurement is also not standard across FHIR profiles. And querying on extensions may or may not work, depending on the server you are using. 

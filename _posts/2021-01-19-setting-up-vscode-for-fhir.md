@@ -1,6 +1,6 @@
 ---
 layout: post
-title: How to Create Your First FHIR Resource
+title: Setting up VSCode for Creating FHIR Resource
 subtitle: And Introduction and Setting up your coding environment
 thumbnail-img: /assets/blog/fhir-logo.png
 tags: [FHIR]
