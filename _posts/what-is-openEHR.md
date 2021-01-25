@@ -6,7 +6,7 @@ thumbnail-img: /assets/blog/.png
 tags: ['openehr']
 ---
 
-# The openEHR philosophy
+# The problem
 When designing a health IT system, it is common for the developer to "just start working" on what the doctors want. It's not uncommon for a developer to code in things like Blood pressure or Heart rate in the software. In fact, that's the only way they know how. This is basically how a typical development cycle looks like:
 1. Gather requirements from a doctor or nurse.
 2. Plan and build software that meets these requirements.
@@ -14,6 +14,7 @@ When designing a health IT system, it is common for the developer to "just start
 4. Receive feedback about changes and new requirements.
 5. Go back to step 1.
 
+# The openEHR philosophy
 openEHR challenges this traditional approach. It instead proposes that the software developed must be dumb and should not know anything about the content that's going to be entered. And I agree, because I too believe that [dumb networks are better than smart networks](https://medium.com/@aantonop/why-dumb-networks-are-better-f0b94c271b76) because they let people innovate faster. This is especially true for the healthcare industry, where innovation has been stagnant due to the fact that we employ extremely smart products and as a result, we're basically stuck with them.
 
 So instead, you develop software based on fundamental concepts and you add other "resources" or "artefacts" that makes the system work. So the development cycle becomes very different:
