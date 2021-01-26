@@ -13,6 +13,11 @@ I have been working on this problem for a while, and today I'm happy to announce
 The app is also available at [this site](https://sidharthramesh.github.io/medblocks-ui/). 
 
 # Tutorial
+A video version of the turorial is available here:
+<div class="youtube-embed-container">
+</div>
+
+If you prefer reading, read on!
 ## Create a template
 The first step is to create a template. We'll be using the [Archetype Designer](https://tools.openehr.org/designer/). We'll be creating an Initial Assessment Template with the Glasgow Coma Scale and Pulse of the patient.
 
@@ -51,7 +56,7 @@ Be sure to also export as OPT for publishing the template to am openEHR Clinical
 
 
 ## Upload web template
-Once the web template is ready, open the [Medblocks UI website](https://sidharthramesh.github.io/medblocks-ui/). Navigate to Settings and click on the Add template button and upload the web template that you just got from the previous step.
+Once the web template is ready, open the [Medblocks UI website](https://sidharthramesh.github.io/medblocks-ui/). Navigate to Settings and click on the Add template button and upload the web template that you just got from the previous step. You can also [download](/assets/blog/medblocks-ui/medblocks-ui.example.v0.json) the web template that I made.
 
 If all goes well, your template should show up like so
 
@@ -110,17 +115,16 @@ Now, we want to make the pulse rate show up only if the pulse is present. This c
   "initial_assessment/pulse_heart_beat/any_event:0/presence|terminology": "local"
 }
 ```
-At the moment, we are only interested in the `initial_assessment/pulse_heart_beat/any_event:0/presence|code`. We should render the pulse rate only when this value is equal to `at1024`.
+At the moment, we are only interested in the `initial_assesment/pulse_heart_beat/presence|code`. We should render the pulse rate only when this value is equal to `at1024`.
 
 Copy the path, close the source view and open up the customization options for Rate, which is a `DV_QUANTITY`. Under the renderFunction, copy paste this javascript function:
 ```js
 (data) => {
-    if (data["initial_assessment/pulse_heart_beat/any_event:0/presence|code"] === "at1024") {
+    if (data["initial_assesment/pulse_heart_beat/presence|code"] === "at1024") {
         return true
     }
     return false
 }
-
 ```
 
 {: .box-warning}
@@ -135,18 +139,21 @@ Next, we'll try to automatically calculate the Glasgow Coma Scale if the E, V an
 ```js
 (data) => {
     if (
-    data["initial_assessment/glasgow_coma_scale_gcs:0/best_eye_response_e/value|ordinal"] 
-    && data["initial_assessment/glasgow_coma_scale_gcs:0/best_verbal_response_v/value|ordinal"] 
-    && data["initial_assessment/glasgow_coma_scale_gcs:0/best_motor_response_m/value|ordinal"]) {
-        return data["initial_assessment/glasgow_coma_scale_gcs:0/best_eye_response_e/value|ordinal"] 
-        + data["initial_assessment/glasgow_coma_scale_gcs:0/best_verbal_response_v/value|ordinal"] 
-        + data["initial_assessment/glasgow_coma_scale_gcs:0/best_motor_response_m/value|ordinal"]
+    data["initial_assesment/glasgow_coma_scale_gcs/best_eye_response_e/value|ordinal"] 
+    && data["initial_assesment/glasgow_coma_scale_gcs/best_verbal_response_v/value|ordinal"] 
+    && data["initial_assesment/glasgow_coma_scale_gcs/best_motor_response_m/value|ordinal"]) {
+        return data["initial_assesment/glasgow_coma_scale_gcs/best_eye_response_e/value|ordinal"] 
+        + data["initial_assesment/glasgow_coma_scale_gcs/best_verbal_response_v/value|ordinal"]
+        + data["initial_assesment/glasgow_coma_scale_gcs/best_motor_response_m/value|ordinal"]
     }
 }
 ```
 
+The result of your computed value should look like below. You can see that the total score of 7 is calculated from the other values on the fly.
 
-Note that this computation only runs when all three values of E, V and, M are present. And if the computation returns a value, the user cannot over-ride it with manual values. This is to avoid inconsistency while capturing data. 
+![computed value](/assets/blog/medblocks-ui/computed.png){: .mx-auto.d-block :}
+
+Note that this computation only runs when all three values of E, V and, M are present. And if the computation returns a value, the user cannot over-ride it with manual values. This is to avoid inconsistency while capturing data.
 
 {: .box-warning}
 **Warning:** The paths may vary depending on the name and id of your template. Always look at the source in your template to get accurate paths.
@@ -154,14 +161,17 @@ Note that this computation only runs when all three values of E, V and, M are pr
 5. Exporting and Importing
 You can export this UI configuration by going to the settings and clicking on Export. The Web templates and configuration changes you made are exported into a JSON file.
 
-I have exported mine, and it is available [here](). 
+I have exported mine, and it is available [here](/assets/blog/medblocks-ui/MedblocksExport-2021-01-26T09_18_56.764Z.json). 
 
-{: .box-warning}
-**Warning:** The exported files may include functions that execute in your browser. If it is from an untrusted source, please verify the following functions - `displayFunction`, `renderFunction`, `computeFunction` yourself before importing it to avoid XSS attacks.
+You can import this using the Import button. Note that all your other configuration will be rewritten. The app currently uses local storage on your browser to persist the configuration, so you can use the export/import function to test the same configuration on multiple devices too.
+
+{: .box-error}
+**Security Warning:** The exported files may include functions that execute in your browser. If it is from an untrusted source, please verify the following functions - `displayFunction`, `renderFunction`, `computeFunction` yourself before importing it to avoid XSS attacks.
 
 
 # Future direction
 - Add support for more data types.
+- Better support for elements with multiple cardinality.
 - Integrated SNOMED CT terminology searches.
 - Compile into web-components and publish to npm, with a guide for all major frameworks.
 
