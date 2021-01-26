@@ -1,10 +1,10 @@
 ---
 layout: page
-title: Sidharth Ramesh
+title: About me
 subtitle: Physician by training, Hacker by passion.
 ---
 
-Welcome to my blog. My name is Dr. Sidharth Ramesh.
+My name is Dr. Sidharth Ramesh. Welcome to my blog!
 
 # My story
 I've always been interested in computers ever since I was a kid. I learned how to code online when I was 16 and have not stopped coding ever since. 
