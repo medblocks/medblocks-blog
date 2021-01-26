@@ -2,15 +2,17 @@
 layout: post
 title: Introducing Medblocks UI
 subtitle: An open-source UI library for openEHR based interfaces.
-# thumbnail-img: /assets/blog/.png
+thumbnail-img: /assets/blog/medblocks-ui.png
 tags: ["medblocks", "openEHR"]
 ---
 # Introduction
 It is a common need to automatically generate forms from openEHR templates. A well-known example is the [Better EHR Studio](https://platform.better.care/forms/). It offers a Form Builder and an AQL Builder. However, there is no open-source alternative, especially for low resource environments, where paying an expensive openEHR provider is not affordable.
 
-I have been working on this problem for a while, and today I'm happy to announce [Medblocks UI]() under the Apache 2 license.
+I have been working on this problem for a while, and today I'm happy to announce [Medblocks UI](https://github.com/sidharthramesh/medblocks-ui) under the Apache 2 license.
 
-The app is also available at [this site](https://sidharthramesh.github.io/medblocks-ui/). 
+![logo](/assets/blog/medblocks-ui/medblocks-ui.png){: .mx-auto.d-block :}
+
+A live version of the app is available at [this site](https://sidharthramesh.github.io/medblocks-ui/). 
 
 # Tutorial
 A video version of the turorial is available here:
@@ -18,7 +20,7 @@ A video version of the turorial is available here:
 </div>
 
 If you prefer reading, read on!
-## Create a template
+## 1. Create a template
 The first step is to create a template. We'll be using the [Archetype Designer](https://tools.openehr.org/designer/). We'll be creating an Initial Assessment Template with the Glasgow Coma Scale and Pulse of the patient.
 
 For this template, we need the following archetypes:
@@ -55,7 +57,7 @@ Rename the template to your liking. Now, you can click on Export and download th
 Be sure to also export as OPT for publishing the template to am openEHR Clinical Data Repository.
 
 
-## Upload web template
+## 2. Upload web template
 Once the web template is ready, open the [Medblocks UI website](https://sidharthramesh.github.io/medblocks-ui/). Navigate to Settings and click on the Add template button and upload the web template that you just got from the previous step. You can also [download](/assets/blog/medblocks-ui/medblocks-ui.example.v0.json) the web template that I made.
 
 If all goes well, your template should show up like so
@@ -70,25 +72,25 @@ You can play around with the form on the left side, and you'll see that they gen
 
 However, this is just the first step. You might have noticed that the form doesn't look it's best. Some redundant fields show up on the Glasgow Coma Scale. We may even want to automatically calculate the GCS score if the E, V and, M scores are present. We may also want the pulse rate to show up only if the pulse is present. 
 
-## Customize
+## 3. Customize
 Let's address these issues by customizing the auto-generated form.
 
 In the settings, click on Customize.
 
-### 1. Changing the Layout
+### Changing the Layout
 Click on `COMPOSITION`. Let's make the form render the contents horizontally instead of vertically. Click on the Layout and choose `Horizontal`.
 
 ![horizontal render](/assets/blog/medblocks-ui/horizontal_render.png){: .mx-auto.d-block :}
 
 
-### 2. Hiding elements
+### Hiding elements
 There are a few DV_CODED_TEXT elements that render in this form with the Glasgow Coma Scale. That's because of how the Archetype designer handles null_flavors. Let's hide those for now. Click on each `DV_CODED_TEXT` element and set render to `false`.
 
 ![hiding](/assets/blog/medblocks-ui/hide_null.png){: .mx-auto.d-block :}
 
 Click save to persist the customizations.
 
-### 3. Conditional rendering
+### Conditional rendering
 Now, we want to make the pulse rate show up only if the pulse is present. This can be done using a plain javascript function. First, select the Presence dropdown to Present. Next, click on view source on the top of the right column - this will show you the current state of the form. It will show something like so:
 
 ```json
@@ -134,7 +136,7 @@ The result of the execution is displayed at the bottom. You can play around with
 
 ![conditional_render](/assets/blog/medblocks-ui/conditional_render.png){: .mx-auto.d-block :}
 
-### 4. Computed values
+### Computed values
 Next, we'll try to automatically calculate the Glasgow Coma Scale if the E, V and M components are present. This also uses a javascript function. Open up the Total Score which is a `DV_COUNT` and paste this into the computeFunction: 
 ```js
 (data) => {
@@ -158,10 +160,10 @@ Note that this computation only runs when all three values of E, V and, M are pr
 {: .box-warning}
 **Warning:** The paths may vary depending on the name and id of your template. Always look at the source in your template to get accurate paths.
 
-5. Exporting and Importing
+### Exporting and Importing
 You can export this UI configuration by going to the settings and clicking on Export. The Web templates and configuration changes you made are exported into a JSON file.
 
-I have exported mine, and it is available [here](/assets/blog/medblocks-ui/MedblocksExport-2021-01-26T09_18_56.764Z.json). 
+I have exported mine, and it is available [here](/assets/blog/medblocks-ui/MedblocksExport-2021-01-26T09_39_03.131Z.json). 
 
 You can import this using the Import button. Note that all your other configuration will be rewritten. The app currently uses local storage on your browser to persist the configuration, so you can use the export/import function to test the same configuration on multiple devices too.
 
