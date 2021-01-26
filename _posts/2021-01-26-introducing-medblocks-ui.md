@@ -2,7 +2,7 @@
 layout: post
 title: Introducing Medblocks UI
 subtitle: An open-source UI library for openEHR based interfaces.
-thumbnail-img: /assets/blog/medblocks-ui.png
+thumbnail-img: /assets/blog/medblocks-ui/medblocks-ui.png
 tags: ["medblocks", "openEHR"]
 ---
 # Introduction
