@@ -51,7 +51,7 @@ Be sure to also export as OPT for publishing the template to am openEHR Clinical
 
 
 ## Upload web template
-Once the web template is ready, open the Medblocks UI website at: https://sidharthramesh.github.io/medblocks-ui/#/settings. Click on the Add template button and upload the web template that you just got from the previous step.
+Once the web template is ready, open the [Medblocks UI website](https://sidharthramesh.github.io/medblocks-ui/). Navigate to Settings and click on the Add template button and upload the web template that you just got from the previous step.
 
 If all goes well, your template should show up like so
 
