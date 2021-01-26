@@ -2,7 +2,7 @@
 layout: post
 title: Introducing Medblocks UI
 subtitle: An open-source UI library for openEHR based interfaces.
-thumbnail-img: /assets/blog/.png
+# thumbnail-img: /assets/blog/.png
 tags: ["medblocks", "openEHR"]
 ---
 # Introduction
@@ -10,35 +10,41 @@ It is a common need to automatically generate forms from openEHR templates. A we
 
 I have been working on this problem for a while, and today I'm happy to announce [Medblocks UI]() under the Apache 2 license.
 
-The app is also available at this site: https://sidharthramesh.github.io/medblocks-ui/
+The app is also available at [this site](https://sidharthramesh.github.io/medblocks-ui/). 
 
 # Tutorial
 ## Create a template
 The first step is to create a template. We'll be using the [Archetype Designer](https://tools.openehr.org/designer/). We'll be creating an Initial Assessment Template with the Glasgow Coma Scale and Pulse of the patient.
 
 For this template, we need the following archetypes:
-- Encounter - https://ckm.openehr.org/ckm/archetypes/1013.1.120/export
-- Glasgow Coma Scale(GCS) - https://ckm.openehr.org/ckm/archetypes/1013.1.137/export
-- Pulse/Heart beat - https://ckm.openehr.org/ckm/archetypes/1013.1.4295/export
+- [Encounter](https://ckm.openehr.org/ckm/archetypes/1013.1.120/export)
+- [Glasgow Coma Scale(GCS)](https://ckm.openehr.org/ckm/archetypes/1013.1.137/export)
+- [Pulse/Heart beat](https://ckm.openehr.org/ckm/archetypes/1013.1.4295/export)
 
 Click on Export ADL for the above archetypes and keep them ready. 
 
-Go to the Archetype Designer at https://tools.openehr.org/designer/ and sign in/sign up. Upload all the archetypes we just exported like so:
+Go to the [Archetype Designer](https://tools.openehr.org/designer/) and sign in or sign up. Upload all the archetypes we just exported like so:
+
 ![upload archetypes](/assets/blog/medblocks-ui/import.png){: .mx-auto.d-block :}
 
 First, we'll create a new template for our Initial assessment:
+
 ![create template](/assets/blog/medblocks-ui/create_template.png){: .mx-auto.d-block :}
 
 Next, we'll inherit from the encounter archetype we just uploaded:
+
 ![create template2](/assets/blog/medblocks-ui/create_template_2.png){: .mx-auto.d-block :}
 
 Next, click on "content" and add the Glasgow coma scale and Pulse archetypes to the composition. We'll be excluding most of the attributes, but a few like so for GCS:
+
 ![glasgow coma scale](/assets/blog/medblocks-ui/gcs_template.png){: .mx-auto.d-block :}
 
 And for the pulse archetype like so:
+
 ![glasgow coma scale](/assets/blog/medblocks-ui/pulse.png){: .mx-auto.d-block :}
 
 Rename the template to your liking. Now, you can click on Export and download the file as a web template. 
+
 ![export webtemplate](/assets/blog/medblocks-ui/export_webtemplate.png){: .mx-auto.d-block :}
 
 Be sure to also export as OPT for publishing the template to am openEHR Clinical Data Repository.
@@ -47,7 +53,8 @@ Be sure to also export as OPT for publishing the template to am openEHR Clinical
 ## Upload web template
 Once the web template is ready, open the Medblocks UI website at: https://sidharthramesh.github.io/medblocks-ui/#/settings. Click on the Add template button and upload the web template that you just got from the previous step.
 
-If all goes well, your template should show up like so:
+If all goes well, your template should show up like so
+
 ![upload webtemplate](/assets/blog/medblocks-ui/upload_webtemplate.png){: .mx-auto.d-block :}
 
 
@@ -77,7 +84,7 @@ There are a few DV_CODED_TEXT elements that render in this form with the Glasgow
 Click save to persist the customizations.
 
 ### 3. Conditional rendering
-Now, we want to make the pulse rate show up only if the pulse is present. This can be done using a plain javascript function. First select the Presence dropdown to Present. Next, click on view source on the top of the right column - this will show you the current state of the form. It will show something like so:
+Now, we want to make the pulse rate show up only if the pulse is present. This can be done using a plain javascript function. First, select the Presence dropdown to Present. Next, click on view source on the top of the right column - this will show you the current state of the form. It will show something like so:
 
 ```json
 {
@@ -144,10 +151,18 @@ Note that this computation only runs when all three values of E, V and, M are pr
 {: .box-warning}
 **Warning:** The paths may vary depending on the name and id of your template. Always look at the source in your template to get accurate paths.
 
+5. Exporting and Importing
+You can export this UI configuration by going to the settings and clicking on Export. The Web templates and configuration changes you made are exported into a JSON file.
+
+I have exported mine, and it is available [here](). 
+
+{: .box-warning}
+**Warning:** The exported files may include functions that execute in your browser. If it is from an untrusted source, please verify the following functions - `displayFunction`, `renderFunction`, `computeFunction` yourself before importing it to avoid XSS attacks.
+
+
 # Future direction
 - Add support for more data types.
 - Integrated SNOMED CT terminology searches.
 - Compile into web-components and publish to npm, with a guide for all major frameworks.
-- 
 
 Feel free to [raise an issue ](https://github.com/sidharthramesh/medblocks-ui/issues) for bugs and feature requests.
