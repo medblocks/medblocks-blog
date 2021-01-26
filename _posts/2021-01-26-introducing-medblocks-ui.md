@@ -95,26 +95,26 @@ Now, we want to make the pulse rate show up only if the pulse is present. This c
 
 ```json
 {
-  "initial_assessment/pulse_heart_beat/any_event:0/presence|code": "at1024",
-  "initial_assessment/pulse_heart_beat/any_event:0/time": "2021-01-26T07:10:15.191Z",
-  "initial_assessment/pulse_heart_beat/language|code": "en",
-  "initial_assessment/pulse_heart_beat/language|terminology": "ISO_639-1",
-  "initial_assessment/pulse_heart_beat/encoding|code": "UTF-8",
-  "initial_assessment/pulse_heart_beat/encoding|terminology": "IANA_character-sets",
-  "initial_assessment/context/start_time": "2021-01-26T07:10:15.192Z",
-  "initial_assessment/context/setting|code": "238",
-  "initial_assessment/context/setting|value": "Other Care",
-  "initial_assessment/context/setting|terminology": "openehr",
-  "initial_assessment/category|code": "433",
-  "initial_assessment/category|value": "event",
-  "initial_assessment/category|terminology": "openehr",
-  "initial_assessment/language|code": "en",
-  "initial_assessment/language|terminology": "ISO_639-1",
-  "initial_assessment/territory|code": "IN",
-  "initial_assessment/territory|terminology": "ISO_3166-1",
-  "initial_assessment/composer|name": "Sidharth Ramesh",
-  "initial_assessment/pulse_heart_beat/any_event:0/presence|value": "Present",
-  "initial_assessment/pulse_heart_beat/any_event:0/presence|terminology": "local"
+  "initial_assesment/pulse_heart_beat/presence|code": "at1024",
+  "initial_assesment/pulse_heart_beat/presence|value": "Present",
+  "initial_assesment/pulse_heart_beat/presence|terminology": "local",
+  "initial_assesment/pulse_heart_beat/time": "2021-01-26T09:44:17.898Z",
+  "initial_assesment/pulse_heart_beat/language|code": "en",
+  "initial_assesment/pulse_heart_beat/language|terminology": "ISO_639-1",
+  "initial_assesment/pulse_heart_beat/encoding|code": "UTF-8",
+  "initial_assesment/pulse_heart_beat/encoding|terminology": "IANA_character-sets",
+  "initial_assesment/context/start_time": "2021-01-26T09:44:17.898Z",
+  "initial_assesment/context/setting|code": "238",
+  "initial_assesment/context/setting|value": "Other Care",
+  "initial_assesment/context/setting|terminology": "openehr",
+  "initial_assesment/category|code": "433",
+  "initial_assesment/category|value": "event",
+  "initial_assesment/category|terminology": "openehr",
+  "initial_assesment/language|code": "en",
+  "initial_assesment/language|terminology": "ISO_639-1",
+  "initial_assesment/territory|code": "IN",
+  "initial_assesment/territory|terminology": "ISO_3166-1",
+  "initial_assesment/composer|name": "Sidharth Ramesh"
 }
 ```
 At the moment, we are only interested in the `initial_assesment/pulse_heart_beat/presence|code`. We should render the pulse rate only when this value is equal to `at1024`.
