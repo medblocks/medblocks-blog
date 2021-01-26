@@ -5,12 +5,13 @@ subtitle: An open-source UI library for openEHR based interfaces.
 thumbnail-img: /assets/blog/medblocks-ui/medblocks-ui.png
 tags: ["medblocks", "openEHR"]
 ---
+![logo](/assets/blog/medblocks-ui/medblocks-ui.png){: .mx-auto.d-block :}
+
 # Introduction
 It is a common need to automatically generate forms from openEHR templates. A well-known example is the [Better EHR Studio](https://platform.better.care/forms/). It offers a Form Builder and an AQL Builder. However, there is no open-source alternative, especially for low resource environments, where paying an expensive openEHR provider is not affordable.
 
 I have been working on this problem for a while, and today I'm happy to announce [Medblocks UI](https://github.com/sidharthramesh/medblocks-ui) under the Apache 2 license.
 
-![logo](/assets/blog/medblocks-ui/medblocks-ui.png){: .mx-auto.d-block :}
 
 A live version of the app is available at [this site](https://sidharthramesh.github.io/medblocks-ui/). 
 
