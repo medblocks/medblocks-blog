@@ -18,11 +18,12 @@ I have been working on this problem for a while, and today I'm happy to announce
 A live version of the app is available at [this site](https://sidharthramesh.github.io/medblocks-ui/). 
 
 # Tutorial
-<!-- A video version of the turorial is available here:
+A video version of the turorial is available here:
 <div class="youtube-embed-container">
+<iframe src="https://www.youtube.com/embed/GRBIUEA_fc8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
-If you prefer reading, read on! -->
+If you prefer reading, read on!
 ## 1. Create a template
 The first step is to create a template. We'll be using the [Archetype Designer](https://tools.openehr.org/designer/). We'll be creating an Initial Assessment Template with the Glasgow Coma Scale and Pulse of the patient.
 
