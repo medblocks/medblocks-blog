@@ -88,7 +88,7 @@ Click on `COMPOSITION`. Let's make the form render the contents horizontally ins
 
 
 ### Hiding elements
-There are a few DV_CODED_TEXT elements that render in this form with the Glasgow Coma Scale. That's because of how the Archetype designer handles null_flavors. Let's hide those for now. Click on each `DV_CODED_TEXT` element and set render to `false`.
+There are a few `DV_CODED_TEXT` elements that render in this form with the Glasgow Coma Scale. That's because of how the Archetype designer handles null_flavors. Let's hide those for now. Click on each `DV_CODED_TEXT` element and set render to `false`.
 
 ![hiding](/assets/blog/medblocks-ui/hide_null.png){: .mx-auto.d-block :}
 
