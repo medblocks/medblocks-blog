@@ -17,7 +17,7 @@ comments: true
 
 
 
-First, Clone my fork of Hermes ([original repo](https://github.com/wardle/hermes)) found here: [https://github.com/sidharthramesh/hermes](https://github.com/sidharthramesh/hermes) into a folder called `hermes`. Technically you only need the `Caddyfile`, `docker-compose.yml`, and `index.sh`. Cloning is much easier.
+First, Clone my fork of Hermes found [here](https://github.com/sidharthramesh/hermes) into a folder called `hermes`. Technically you only need the `Caddyfile`, `docker-compose.yml`, and `index.sh`.
 
 Now, extract the SNOMED CT release files into a folder called `snomed` inside the `hermes` directory.
 
