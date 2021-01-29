@@ -12,10 +12,12 @@ comments: true
 2. Download and install docker and docker-compose. (Or you can use Java with the `jar`, but I strongly recommend docker.)
 
 # Instructions:
-1. Clone my fork of Hermes ([original repo](https://github.com/wardle/hermes)) found here: [https://github.com/sidharthramesh/hermes/tree/master](https://github.com/sidharthramesh/hermes) into a folder called `hermes`.
-2. Extract the SNOMED CT release files into a folder called `snomed` inside the `hermes` directory.
+First, Clone my fork of Hermes ([original repo](https://github.com/wardle/hermes)) found here: [https://github.com/sidharthramesh/hermes/tree/master](https://github.com/sidharthramesh/hermes) into a folder called `hermes`.
+
+Now, extract the SNOMED CT release files into a folder called `snomed` inside the `hermes` directory.
 
 Your hermes directory should look something like this:
+
 ```sh
 hermes
 ├── snomed
@@ -41,25 +43,34 @@ hermes
 ├── src
 └── test
 ```
-3. Index your SNOMED CT files:
+
+Index your SNOMED CT files:
+
 ```sh
 chmod +x ./index.sh
 ./index.sh
 ```
+
 For some reason if you're unable to use the script, execute these commands in order:
+
 ```sh
 docker-compose run hermes java -jar target/hermes-full-v0.1.0.jar -d /db/snomed.db import /db/snomed
 docker-compose run hermes java -jar target/hermes-full-v0.1.0.jar -d /db/snomed.db index
 docker-compose run hermes java -jar target/hermes-full-v0.1.0.jar -d /db/snomed.db compact
 ```
-4. Run `docker-compose up`.
+
+Run `docker-compose up`.
 
 You should have a terminology server running at [http://localhost:8080](http://localhost:8080). 
-5. Test your server by searching. You can change the `s` (search term), `constraint` ([ECL constraint](https://confluence.ihtsdotools.org/display/DOCECL)) and `maxHits` values.
+
+Let's test the server by searching. You can change the `s` (search term), `constraint` ([ECL constraint](https://confluence.ihtsdotools.org/display/DOCECL)) and `maxHits` values.
+
 ```sh
 curl "http://localhost:8080/v1/snomed/search?s=Head&constraint=<64572001&maxHits=3" -H "Accept: application/json"
 ```
+
 You should get a JSON response like:
+
 ```json
 [
     {
@@ -83,5 +94,5 @@ You should get a JSON response like:
 ]
 ```
 
-{: .box-warning}
+{: .box-note}
 **Alternative:** If you want to just run Hermes with Java, you can find the `jar` [here](https://github.com/sidharthramesh/hermes/releases/download/0.1.0/hermes-full-v0.1.0.jar). However, note that CORS is not enabled by default, so if you're searching from a front end application, you'll need to set that up yourself by setting up a reverse proxy like I have done using caddy. You can also just download the docker image of a pre-build hermes at [dockerhub](https://hub.docker.com/r/tornadoalert/hermes) or pull directly using `docker pull tornadoalert/hermes`
