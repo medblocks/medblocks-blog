@@ -7,12 +7,17 @@ share-img: /assets/blog/snomed-logo.png
 tags: ["SNOMED"]
 comments: true
 ---
+**Credits:** All of the heavy lifting is done by [Hermes](https://github.com/wardle/hermes), an open-source Clojure library for exploring SNOMED CT terminologies. Big shout out to [Mark Wardle](https://twitter.com/mwardle) for the great work! You can check out his blog on clinical informatics [here](https://wardle.org/). Lot's of cool stuff!
+
 # Pre-requisites:
 1. Get the SNOMED CT files from your National Release Center or [MLDS](https://mlds.ihtsdotools.org/)
 2. Download and install docker and docker-compose. (Or you can use Java with the `jar`, but I strongly recommend docker.)
 
 # Instructions:
-First, Clone my fork of Hermes ([original repo](https://github.com/wardle/hermes)) found here: [https://github.com/sidharthramesh/hermes/tree/master](https://github.com/sidharthramesh/hermes) into a folder called `hermes`.
+
+
+
+First, Clone my fork of Hermes ([original repo](), ) found here: [https://github.com/sidharthramesh/hermes](https://github.com/sidharthramesh/hermes) into a folder called `hermes`. Technically you only need the 
 
 Now, extract the SNOMED CT release files into a folder called `snomed` inside the `hermes` directory.
 
