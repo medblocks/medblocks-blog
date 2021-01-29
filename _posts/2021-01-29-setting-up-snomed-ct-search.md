@@ -17,7 +17,7 @@ comments: true
 
 
 
-First, Clone my fork of Hermes found [here](https://github.com/sidharthramesh/hermes) into a folder called `hermes`. Technically you only need the `Caddyfile`, `docker-compose.yml`, and `index.sh`.
+First, Clone [my fork](https://github.com/sidharthramesh/hermes) of Hermes into a folder called `hermes`. Technically, you only need the `Caddyfile`, `docker-compose.yml`, and `index.sh`.
 
 Now, extract the SNOMED CT release files into a folder called `snomed` inside the `hermes` directory.
 
@@ -49,7 +49,7 @@ hermes
 └── test
 ```
 
-Index your SNOMED CT files:
+Index your SNOMED CT files. This step requires a lot of compute and will take some time (20 mins - 1 hour). Make sure your system has enough memory. 
 
 ```sh
 chmod +x ./index.sh
@@ -64,9 +64,12 @@ docker-compose run hermes java -jar target/hermes-full-v0.1.0.jar -d /db/snomed.
 docker-compose run hermes java -jar target/hermes-full-v0.1.0.jar -d /db/snomed.db compact
 ```
 
-Run `docker-compose up`.
+The indexed files are now in the `snomed.db` folder. Good news is, you can just send this folder to another system and the next command will still work. The reason I had to write all the above instructions is due to the SNOMED Licensing policy. Once you have your `snomed.db`, you can send it (compress before sending) to another server or even include it in a docker containr for setting up things in the cloud faster.
 
-You should have a terminology server running at [http://localhost:8080](http://localhost:8080). 
+Start the server with `docker-compose up`.
+
+
+You should now have a terminology server running at [http://localhost:8080](http://localhost:8080). 
 
 Let's test the server by searching. You can change the `s` (search term), `constraint` ([ECL constraint](https://confluence.ihtsdotools.org/display/DOCECL)) and `maxHits` values.
 
