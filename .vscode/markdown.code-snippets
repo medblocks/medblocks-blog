@@ -33,6 +33,6 @@
 	"Page layout": {
 		"scope": "markdown",
 		"prefix": "---",
-		"body": "---\nlayout: post\ntitle: $1\nsubtitle: $2\nthumbnail-img: /assets/blog/$3.png\ntags: [$4]\n---"
+		"body": "---\nlayout: post\ntitle: $1\nsubtitle: $2\nthumbnail-img: /assets/blog/$3.png\ntags: [$4]\ncomments: true\n---"
 	}
 }
