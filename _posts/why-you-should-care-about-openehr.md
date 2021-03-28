@@ -7,7 +7,7 @@ tags: ['openehr']
 ---
 
 # The problem
-When designing a health IT system, it is common for the developer to "just start working" on what the doctors want. It's not uncommon for a developer to code in things like Blood pressure or Heart rate in the software. In fact, that's the only way they know how. This is basically how a typical development cycle looks like:
+When designing a health IT system, it is common for the developer to "just start working" on what the doctors want. It's not uncommon for a developer to code in things like Blood pressure or Heart rate in software code. In fact, that's the only way they know how. This is basically how a typical development cycle looks like:
 1. Gather requirements from a doctor or nurse.
 2. Plan and build software that meets these requirements.
 3. Demonstrate the product to the doctor or nurse.
@@ -42,11 +42,31 @@ The beauty of openEHR is that it does not just announce that you need to separat
 
 
 AQL differs from SQL and even querying using FHIR, in that it does not assume to know the structure of the underlying data at query time.
-For example, assume that in a General Physical Examination, you want to extract all the positions the Blood Pressure was recorded in. Using openEHR, a template for General Physical Examination can be created and the blood pressure, along with the position can be included.
+
+For example, assume that in a General Physical Examination, you want to extract all the different positions the Blood Pressure was recorded in. Using openEHR, a template for General Physical Examination can be created and the blood pressure, along with the position can be included.
 
 A query like the following can be composed to extract that information:
 
 ~~~
+SELECT                                                       -- Select clause
+   o/data[at0001]/.../items[at0004]/value AS systolic,       -- Identified path with alias
+   o/data[at0001]/.../items[at0005]/value AS diastolic,
+   o/data[at0001]/.../items[at0006]/value AS position,
+   c/context/start_time AS date_time
+FROM                                                         -- From clause
+   EHR[ehr_id/value=$ehrUid]                                 -- RM class expression
+      CONTAINS                                               -- containment
+         COMPOSITION c                                       -- RM class expression
+            [openEHR-EHR-COMPOSITION.encounter.v1]           -- archetype predicate
+         CONTAINS
+            OBSERVATION o [openEHR-EHR-OBSERVATION.blood_pressure.v1]
+WHERE                                                        -- Where clause
+   o/data[at0001]/.../items[at0004]/value/value >= 140 OR    -- value comparison
+   o/data[at0001]/.../items[at0004]/value/value <= 100 OR
+ORDER BY                                                     -- order by datetime, latest first
+   c/context/start_time DESC
 ~~~
 
-Modelling the same information using FHIR is hard. You'll have to encode the "General Physical Examination" into the Encounter or under an extension under the Observation. The position of measurement is also not standard across FHIR profiles. And querying on extensions may or may not work, depending on the server you are using. 
+Modelling the same information using FHIR is hard. You'll have to encode the "General Physical Examination" into the Encounter or under an extension under the Observation. The position of measurement is also not standard across FHIR profiles. And querying on extensions may or may not work, depending on the server you are using. FHIR has come up with Questionnaire for solving this issue. However, the fact remains that you will have to map back and forth between the Questionaire response and actual computable FHIR resources. A better alternative would be to use openEHR as the data capture mechanism and then map those to and from FHIR.
+
+
