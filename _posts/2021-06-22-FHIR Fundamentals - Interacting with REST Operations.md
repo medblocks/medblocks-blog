@@ -24,7 +24,7 @@ Ho7 has a list of publicly available servers  [link](https://wiki.hl7.org/Public
      1.Copy the base url 
      2.Open Insomnia, Make a new request and paste the base url.Perform a sample GET request and you should get the same base url.
 ## 2.How to Post a Patient Resource
-### Sample Patient Resource JSON-file
+ Sample Patient Resource JSON-file
 ```json
 {
     "resourceType":"Patient",
@@ -91,7 +91,7 @@ As you can see this resource does not have an ID here, But ID will be generated 
 
    ```
 
-  ## 4.How to edit a Particular Resource
+4.How to edit a Particular Resource
 
   Let's say that you want to edit the value and change it to 4.3
 
